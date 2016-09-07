@@ -245,7 +245,7 @@ def set_target_children(module, tree, xpath, namespaces, children):
     matches = tree.xpath(xpath, namespaces=namespaces)
 
     # Create a list of our new children
-    children = children_to_nodes(module=module, children=children)
+    children = children_to_nodes(children=children, module=module, namespaces=namespaces)
     children_as_string = [lxml.etree.tostring(c) for c in children]
 
     changed = False
