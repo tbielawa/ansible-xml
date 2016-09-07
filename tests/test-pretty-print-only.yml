@@ -1,0 +1,11 @@
+---
+  - name: Setup test fixture
+    shell: cat fixtures/ansible-xml-beers.xml | sed 's/^[ ]*//g' > /tmp/ansible-xml-beers.xml
+
+  - name: Pretty print without modification
+    xml:
+      file: /tmp/ansible-xml-beers.xml
+      pretty_print: True
+
+  - name: Test expected result
+    shell: executable=/bin/bash diff <(xmllint --exc-c14n /tmp/ansible-xml-beers.xml) <(xmllint --exc-c14n results/test-pretty-print-only.xml)

@@ -1,0 +1,16 @@
+---
+  - name: Add child element
+    xml:
+      file: /tmp/ansible-xml-namespaced-beers-new.xml
+      ensure: create
+      rootelement: spaceA:business
+      pretty_print : True
+      namespaces:
+        spaceA: common.A
+        spaceB: http://x.y.z/B
+      xpath: /spaceA:business/spaceB:schema/beers/aap[@type='aType']
+      add_children:
+        - beer: "Old Rasputin"
+
+  - name: Test expected result
+    shell: echo OK

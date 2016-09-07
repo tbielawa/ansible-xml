@@ -1,0 +1,13 @@
+---
+  - name: Add child element
+    xml:
+      file: /tmp/ansible-xml-beers-new.xml
+      ensure: create
+      rootelement: business
+      pretty_print : True
+      xpath: /business/beers
+      add_children:
+        - beer: "Old Rasputin"
+
+  - name: Test expected result
+    shell: echo OK

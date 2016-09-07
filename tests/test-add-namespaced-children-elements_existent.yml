@@ -1,0 +1,19 @@
+---
+  - name: Setup test fixture
+    copy: src=fixtures/ansible-xml-namespaced-beers-existent.xml dest=/tmp/ansible-xml-namespaced-beers-new.xml
+
+  - name: Add child element
+    xml:
+      file: /tmp/ansible-xml-namespaced-beers-new.xml
+      ensure: create
+      rootelement: spaceA:business
+      pretty_print : True
+      namespaces:
+        spaceA: common.A
+        spaceB: http://x.y.z/B
+      xpath: /spaceA:business/spaceB:schema/openers/spaceA:steel[@color='black']
+      add_children:
+        - opener: "The Terminator"
+
+  - name: Test expected result
+    shell: echo OK

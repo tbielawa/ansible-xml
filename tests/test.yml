@@ -16,14 +16,21 @@
     - include: test-remove-element.yml
     - include: test-set-attribute-value.yml
     - include: test-set-children-elements.yml
+    - include: test-set-children-elements-level.yml
     - include: test-set-element-value.yml
     - include: test-set-element-value-empty.yml
     - include: test-pretty-print.yml
+    - include: test-pretty-print-only.yml
     - include: test-add-namespaced-children-elements.yml
     - include: test-remove-namespaced-attribute.yml
     - include: test-set-namespaced-attribute-value.yml
     - include: test-set-namespaced-element-value.yml
     - include: test-get-element-content.yml
+    - include: test-xmlstring.yml
+    - include: test-add-children-elements_non-existent.yml
+    - include: test-add-namespaced-children-elements_non-existent.yml
+    - include: test-add-namespaced-children-elements_existent.yml
+
 
     # Unicode tests
     - include: test-add-children-elements-unicode.yml

@@ -13,4 +13,4 @@
         - beer: "Old Rasputin"
 
   - name: Test expected result
-    command: diff results/test-add-namespaced-children-elements.xml /tmp/ansible-xml-namespaced-beers.xml
+    shell: executable=/bin/bash diff <(xmllint --exc-c14n /tmp/ansible-xml-namespaced-beers.xml) <(xmllint --exc-c14n results/test-add-namespaced-children-elements.xml)

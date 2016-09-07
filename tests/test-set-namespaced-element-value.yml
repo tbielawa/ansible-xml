@@ -26,7 +26,7 @@
       value: "11"
     register: set_element_second_run
   - name: Test expected result
-    command: diff results/test-set-namespaced-element-value.xml /tmp/ansible-xml-namespaced-beers.xml
+    shell: executable=/bin/bash diff <(xmllint --exc-c14n /tmp/ansible-xml-namespaced-beers.xml) <(xmllint --exc-c14n results/test-set-namespaced-element-value.xml)
     changed_when: False
 
 

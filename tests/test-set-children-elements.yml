@@ -11,7 +11,7 @@
         - beer: "Harvest Pumpkin Ale"
 
   - name: Test expected result
-    command: diff results/test-set-children-elements.xml /tmp/ansible-xml-beers.xml
+    shell: executable=/bin/bash diff <(xmllint --exc-c14n /tmp/ansible-xml-beers.xml) <(xmllint --exc-c14n results/test-set-children-elements.xml)
 
   - name: Set child elements
     xml:

@@ -9,4 +9,4 @@
       add_children: "{{ bad_beers }}"
 
   - name: Test expected result
-    command: diff results/test-add-children-from-groupvars.xml /tmp/ansible-xml-beers.xml
+    shell: executable=/bin/bash diff <(xmllint --exc-c14n /tmp/ansible-xml-beers.xml) <(xmllint --exc-c14n results/test-add-children-from-groupvars.xml)
