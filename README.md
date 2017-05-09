@@ -64,7 +64,7 @@ Remove the ``subjective`` attribute of the rating element:
 
 ```yaml
 xml:
-  path: /foo/bar.xml
+  file: /foo/bar.xml
   xpath: /business/rating/@subjective
   ensure: absent
 ```
@@ -73,7 +73,7 @@ Set the rating to **11**
 
 ```yaml
 xml:
-  path: /foo/bar.xml
+  file: /foo/bar.xml
   xpath: /business/rating
   value: 11
 ```
@@ -82,7 +82,7 @@ Get count of beers nodes
 
 ```yaml
 xml:
-  path: /foo/bar.xml
+  file: /foo/bar.xml
   xpath: /business/beers/beer
   count: true
 register: hits
@@ -98,7 +98,7 @@ automatically)
 
 ```yaml
 xml:
-  path: /foo/bar.xml
+  file: /foo/bar.xml
   xpath: /business/phonenumber
   value: 555-555-1234
 ```
@@ -117,7 +117,7 @@ Then the playbook syntax would look like this:
 
 ```yaml
 xml:
-  path: /foo/bar.xml
+  file: /foo/bar.xml
   xpath: /business/beers
   add_children: '{{ new_beers }}'
 ```
@@ -126,7 +126,7 @@ The same, but do it inline
 
 ```yaml
 xml:
-  path: /foo/bar.xml
+  file: /foo/bar.xml
   xpath: /business/beers
   add_children:
       - beer: "Old Rasputin"
@@ -141,7 +141,7 @@ Add a ``validxhtml`` element to the ``website`` element. Note that
 
 ```yaml
 xml:
-  path: /foo/bar.xml
+  file: /foo/bar.xml
   xpath: /business/website/validxhtml
 ```
 
@@ -152,7 +152,7 @@ implicit parent-node creation behavior. The result is something like
 
 ```yaml
 xml:
-  path: /foo/bar.xml
+  file: /foo/bar.xml
   xpath: /business/website/validxhtml/@validatedon
 ```
 
@@ -160,7 +160,7 @@ xml:
 
 ```yaml
 xml:
-  path: /foo/bar.xml
+  file: /foo/bar.xml
   xpath: /business/website/*
   ensure: absent
 ```
@@ -169,7 +169,7 @@ xml:
 
 ```yaml
 xml:
-  path: /foo/bar.xml
+  file: /foo/bar.xml
   xpath: /business/website
   children: []
 ```
